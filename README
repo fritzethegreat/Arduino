@@ -1,0 +1,81 @@
+/********************
+* Table of Contents *
+********************/
+
+I. Blink
+
+
+
+I. Blink
+---------
+
+0.) Project Information / Description
+
+  name: Blink
+  dir:  ./Blink
+  desc: 
+
+    This is a simple blink LED program that is provided by Arduino for the 
+  MegaADK development board with the Atmega2560 microprocessor
+
+  datasheets / board info:
+
+  < Arduino Mega ADK Webpage >
+  http://www.arduino.cc/en/Main/ArduinoBoardADK
+
+  < Atmega2560 Datasheet >
+  www.atmel.com/dyn/resources/prod_documents/doc2549.pdf
+
+1.) Initial Setup
+
+    Since I am running Gentoo, I followed the basic steps on the Gentoo
+  Wiki for cross compiling.
+
+  < Crossdev - Gentoo Linux >
+  http://en.gentoo-wiki.com/wiki/Crossdev#AVR_Architecture
+
+    I haven't managed to get the provided Arduino IDE to work. My advice
+  would be to forget it because...it's just an IDE. While these definitely have
+  their uses, I assume at the professional level, I find that for my purposes,
+  nano and makefiles will suffice (in addition to the uploader tool).
+
+    In order for your computer to identify the board, you need to have a 
+  proper kernel configuration. This can be found at the Arduino Playground
+
+  < Arduino Playground - Configuring the Kernel for Arduino's USB >
+  http://www.arduino.cc/playground/linux/gentoo
+
+
+    Also, make sure you have avrdude, avr-libc, and the Arduino source which
+  is hosted in a git repository.
+
+  git clone git://github.com/arduino/Arduino.git
+
+
+    Now, I pushed a bunch of those Arduino headers into
+      /usr/avr/include/avr/
+  You'll notice this is where I'm including the headers in the source.
+
+2.) Compiling, Extracting, Uploading
+
+    You can see the source files included in the directory and the makefile.
+  At some point, I'll compress all of the Arduino files into a library and
+  post the makefile. I'd post the library, but that's machine specific and a
+  binary...so that probably won't help much.
+
+    Basically, to get a 'uploadable file' from the source, you'll need to:
+
+  - Compile the source (and link, usually done for you by avr-gcc)
+  - Extract the hex code
+  - Upload the hex
+
+3.) Does It Work?
+
+    AFTER you upload the hex code with avr dude, hit the reset button. You
+  should see a blinking LED. If you do, you just completed embedded
+  "Hello World".  Happy coding.
+
+    If not, check your steps to make sure all the parameters were present
+  when compiling. These are easy to miss. I fought with them a bit. Umm...
+  I suppose you could e-mail me. I might answer, but I work two jobs right now
+  so free-time is in short supply. I help if I can.
